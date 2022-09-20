@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="f8fd71ec-bcdc-42db-94f5-eb388628999c" doc:description="http listener created by jayps" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="1stprojectFlow" doc:id="95924842-011b-4036-ad9c-124955003a0e" >
+		<http:listener doc:name="Listener" doc:id="0aafa28a-23a4-4db2-9006-efa7e634d64a" config-ref="HTTP_Listener_config" path="/1stproject" allowedMethods="GET">
+		</http:listener>
+		<logger level="INFO" doc:name="Logger" doc:id="017c5fd4-dac2-4639-94fa-d9741926e08f" message="Start LOG"/>
+		<set-payload value='#["Hello Jayps from payload"]' doc:name="Set Payload" doc:id="197bb386-36cd-433a-9c2f-49c87c83c26e" />
+	</flow>
+</mule>
